@@ -21,9 +21,6 @@ export default defineComponent({});
   list-style-type: none;
 }
 
-/* li + li {
-  margin-left: 10px;
-} */
 li {
   padding: 10px;
 }

@@ -17,6 +17,6 @@ export default defineComponent({
 <style scoped>
 .site-body {
   width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 </style>
