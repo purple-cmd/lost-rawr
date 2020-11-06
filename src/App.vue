@@ -1,30 +1,33 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import TheHeader from "@/components/TheHeader.vue";
+import APISpinner from "@/api/APISpinner.vue";
+
+export default defineComponent({
+  components: {
+    TheHeader,
+    APISpinner
+  },
+});
+</script>
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <TheHeader />
+  <div class="site-body">
+    <router-view />
   </div>
-  <router-view/>
+  <APISpinner class="spinner-wrapper" />
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.site-body {
+  width: 800px;
+  margin: 20px auto;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.spinner-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 </style>
