@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent } from 'vue';
 import useLoading from './useLoading';
 
 export default defineComponent({
@@ -10,9 +10,9 @@ export default defineComponent({
 })
 </script>
 <template>
-    <div v-if="loading">
-        loading... 
-    </div>
+  <div v-if="loading">
+    loading... 
+  </div>
 </template>
 <style scoped>
 

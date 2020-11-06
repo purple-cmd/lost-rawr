@@ -40,14 +40,24 @@ export default defineComponent({
   <table class="lo-table">
     <thead>
       <tr>
-        <th v-for="col in columnsConfig" :key="col.id">
+        <th
+          v-for="col in columnsConfig"
+          :key="col.id"
+        >
           {{ col.id }}
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in items" :key="item.id">
-        <td v-for="col in columnsConfig" :key="col.id" :style="col.style">
+      <tr
+        v-for="item in items"
+        :key="item.id"
+      >
+        <td
+          v-for="col in columnsConfig"
+          :key="col.id"
+          :style="col.style"
+        >
           <!-- <img v-if="col.type === ColumnTypes.IMAGE" :src="item[col.name]" />
           <input v-if="col.type === ColumnTypes.CHECKBOX" type="checkbox" />
           <button v-if="col.type === ColumnTypes.ACTION" type="button" />

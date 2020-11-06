@@ -3,7 +3,6 @@ import { defineComponent } from "vue";
 import api from "@/api/api";
 import Pet from "@/interfaces/Pet";
 import LoTable, { ColumnConfig } from "@/components/LoTable.vue"; // @ is an alias to /src
-import { AxiosResponse } from 'axios';
 
 export default defineComponent({
   components: {
@@ -67,7 +66,10 @@ export default defineComponent({
       Welcome to lost-rawr, here you can see details about lost pets 
     </section>
     <section class="table-wrapper">
-      <LoTable :items="lostPets" :columns-config="columnsConfig" />
+      <LoTable
+        :items="lostPets"
+        :columns-config="columnsConfig"
+      />
     </section>
   </div>
 </template>
