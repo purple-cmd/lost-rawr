@@ -39,14 +39,14 @@ export default defineComponent({
 <template>
   <table class="table-auto">
     <thead>
-      <!-- <tr>
+      <tr>
         <th
-          :for="col in columnsConfig"
+          v-for="col in columnsConfig"
           :key="col.id"
         >
           {{ col.id }}
         </th>
-      </tr> -->
+      </tr>
     </thead>
     <tbody>
       <tr
