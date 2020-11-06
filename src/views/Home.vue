@@ -62,6 +62,9 @@ export default defineComponent({
 
 <template>
   <div class="home">
-    <LoTable :items="lostPets" :columns-config="columnsConfig" />
+    <LoTable
+      :items="lostPets"
+      :columns-config="columnsConfig"
+    />
   </div>
 </template>

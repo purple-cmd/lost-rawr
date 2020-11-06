@@ -26,13 +26,13 @@ export default defineComponent({
       required: true,
     },
   },
-  mounted() {
-    console.log(this.items);
-  },
   data() {
     return {
       ColumnTypes
     }
+  },
+  mounted() {
+    console.log(this.items);
   }
 });
 </script>
@@ -49,13 +49,20 @@ export default defineComponent({
       </tr> -->
     </thead>
     <tbody>
-      <tr v-for="item in items" :key="item.id">
-        <td v-for="col in columnsConfig" :key="col.id" :style="col.style">
+      <tr
+        v-for="item in items"
+        :key="item.id"
+      >
+        <td
+          v-for="col in columnsConfig"
+          :key="col.id"
+          :style="col.style"
+        >
           <!-- <img v-if="col.type === ColumnTypes.IMAGE" :src="item[col.name]" />
           <input v-if="col.type === ColumnTypes.CHECKBOX" type="checkbox" />
           <button v-if="col.type === ColumnTypes.ACTION" type="button" />
           <span v-if="!col.type || col.type === ColumnConfigTypes.TEXT"> -->
-            {{ item[col.id] }}
+          {{ item[col.id] }}
         </td>
       </tr>
     </tbody>
