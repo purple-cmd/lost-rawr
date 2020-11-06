@@ -1,7 +1,22 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import TheHeader from "@/components/TheHeader.vue";
+
+export default defineComponent({
+  components: {
+    TheHeader,
+  },
+});
+</script>
 <template>
-  <router-view />
+  <TheHeader />
+  <div class="site-body">
+    <router-view />
+  </div>
 </template>
-
-<style lang="scss">
-
+<style scoped>
+.site-body {
+  width: 800px;
+  margin: 0 auto;
+}
 </style>

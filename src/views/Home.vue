@@ -11,9 +11,9 @@ export default defineComponent({
   data() {
     const lostPets: Pet[] = [];
     const columnsConfig: ColumnConfig[] = [
-      {
-        id: "id",
-      },
+      // {
+      //   id: "id",
+      // },
       {
         id: "name",
       },
@@ -29,9 +29,9 @@ export default defineComponent({
       {
         id: "gender",
       },
-      {
-        id: "pictureUrl",
-      },
+      // {
+      //   id: "pictureUrl",
+      // },
       {
         id: "lostDate",
       },
@@ -41,9 +41,9 @@ export default defineComponent({
       {
         id: "locationLastSeen",
       },
-      {
-        id: "notes",
-      },
+      // {
+      //   id: "notes",
+      // },
     ];
 
     return {
@@ -62,9 +62,14 @@ export default defineComponent({
 
 <template>
   <div class="home">
-    <LoTable
-      :items="lostPets"
-      :columns-config="columnsConfig"
-    />
+    <section>
+      Welcome to lost-rawr, here you can see details about lost pets 
+    </section>
+    <section class="table-wrapper">
+      <LoTable :items="lostPets" :columns-config="columnsConfig" />
+    </section>
   </div>
 </template>
+<style lang="scss" scoped>
+
+</style>

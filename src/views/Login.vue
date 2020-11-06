@@ -1,5 +1,7 @@
 <template>
-  <div class="about">
     <h1>This is an admin login page</h1>
-  </div>
+    <div>
+      yet to be implemented
+    </div>
 </template>
+
