@@ -1,17 +1,20 @@
 <script lang="ts">
-import { defineComponent } from "vue";
-import useLoading from "./useLoading";
+import { defineComponent } from 'vue'
+import useLoading from './useLoading'
 
 export default defineComponent({
-  setup() {
-    const { loading } = useLoading();
-    return { loading };
-  },
-});
+  setup () {
+    const { loading } = useLoading()
+    return { loading }
+  }
+})
 </script>
 <template>
-  <div v-if="loading" class="busy-indicator">
-    loading 
+  <div
+    v-if="loading"
+    class="busy-indicator"
+  >
+    loading
     <span class="dots">
       <span>.</span>
       <span>.</span>
@@ -87,6 +90,6 @@ export default defineComponent({
      * with a delay of .4s, otherwise all dots
      * would animate at the same time
      */
-  animation-delay: 0.4s;
+  animation-delay: 0.7s;
 }
 </style>

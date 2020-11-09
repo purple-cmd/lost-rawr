@@ -1,14 +1,14 @@
 <script lang="ts">
-import { defineComponent } from "vue";
-import TheHeader from "@/components/TheHeader.vue";
-import BusyIndicator from "@/api/BusyIndicator.vue";
+import { defineComponent } from 'vue'
+import TheHeader from '@/components/TheHeader.vue'
+import BusyIndicator from '@/api/BusyIndicator.vue'
 
 export default defineComponent({
   components: {
     TheHeader,
     BusyIndicator
-  },
-});
+  }
+})
 </script>
 <template>
   <TheHeader />
