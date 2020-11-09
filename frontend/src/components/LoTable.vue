@@ -1,5 +1,5 @@
 <script lang="ts">
-import { CSSProperties, defineComponent } from "vue";
+import { CSSProperties, defineComponent } from 'vue'
 
 export interface ColumnConfig {
   id: string;
@@ -19,22 +19,34 @@ export default defineComponent({
   props: {
     items: {
       type: Array,
-      required: true,
+      required: true
     },
     columnsConfig: {
       type: Array as () => ColumnConfig[],
-      required: true,
+      required: true
     },
+    loadMoreData: {
+      type: Function,
+      required: true
+    }
   },
-  data() {
+  data () {
     return {
-      ColumnTypes,
-    };
+      ColumnTypes
+    }
   },
-  mounted() {
-    console.log(this.items);
-  },
-});
+  methods: {
+    onScroll (event: Event) {
+      const target = event.target as HTMLDivElement
+      const { scrollTop, clientHeight, scrollHeight } = target
+
+      // Plus 1 because browser impl. bug
+      if (scrollTop + clientHeight + 1 >= scrollHeight) {
+        this.$props.loadMoreData()
+      }
+    }
+  }
+})
 </script>
 <template>
   <table class="lo-table">
@@ -48,7 +60,7 @@ export default defineComponent({
         </th>
       </tr>
     </thead>
-    <tbody>
+    <tbody @scroll="onScroll">
       <tr
         v-for="item in items"
         :key="item.id"
@@ -104,4 +116,16 @@ export default defineComponent({
   border-bottom: 2px solid #009879;
 }
 
+// Scroll hack
+thead tr {
+  display: block;
+}
+tbody {
+  display: block;
+  overflow-y: auto;
+
+  // Find a solution to make it dynamic
+  height: 500px;
+  width: 100%;
+}
 </style>

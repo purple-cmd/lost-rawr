@@ -5,8 +5,8 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-recommended',
-    // '@vue/standard',
-    '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
+    '@vue/standard'
   ],
   parserOptions: {
     ecmaVersion: 2020

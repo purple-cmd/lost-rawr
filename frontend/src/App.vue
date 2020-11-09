@@ -1,21 +1,21 @@
 <script lang="ts">
-import { defineComponent } from "vue";
-import TheHeader from "@/components/TheHeader.vue";
-import APISpinner from "@/api/APISpinner.vue";
+import { defineComponent } from 'vue'
+import TheHeader from '@/components/TheHeader.vue'
+import BusyIndicator from '@/api/BusyIndicator.vue'
 
 export default defineComponent({
   components: {
     TheHeader,
-    APISpinner
-  },
-});
+    BusyIndicator
+  }
+})
 </script>
 <template>
   <TheHeader />
   <div class="site-body">
     <router-view />
   </div>
-  <APISpinner class="spinner-wrapper" />
+  <BusyIndicator class="spinner-wrapper" />
 </template>
 <style scoped>
 .site-body {
