@@ -35,6 +35,13 @@ export default defineComponent({
       ColumnTypes
     }
   },
+  // created: {
+  // Plus 1 because browser impl. bug
+  // if (scrollTop + clientHeight + 1 >= scrollHeight) {
+  //   this.$props.loadMoreData()
+  // }
+  // TODO - INITIAL LOADING B4 SCROLL
+  // }
   methods: {
     onScroll (event: Event) {
       const target = event.target as HTMLDivElement
@@ -49,83 +56,74 @@ export default defineComponent({
 })
 </script>
 <template>
-  <table class="lo-table">
-    <thead>
-      <tr>
-        <th
+  <div class="lo-table">
+    <section class="table-head">
+      <div class="table-row">
+        <div
           v-for="col in columnsConfig"
           :key="col.id"
+          class="table-cell"
         >
           {{ col.id }}
-        </th>
-      </tr>
-    </thead>
-    <tbody @scroll="onScroll">
-      <tr
+        </div>
+      </div>
+    </section>
+    <section
+      class="table-body"
+      @scroll="onScroll"
+    >
+      <div
         v-for="item in items"
         :key="item.id"
+        class="table-row"
       >
-        <td
+        <div
           v-for="col in columnsConfig"
           :key="col.id"
+          class="table-cell"
           :style="col.style"
         >
-          <!-- <img v-if="col.type === ColumnTypes.IMAGE" :src="item[col.name]" />
-          <input v-if="col.type === ColumnTypes.CHECKBOX" type="checkbox" />
-          <button v-if="col.type === ColumnTypes.ACTION" type="button" />
-          <span v-if="!col.type || col.type === ColumnConfigTypes.TEXT"> -->
           {{ item[col.id] }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 <style lang="scss" scoped>
 .lo-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
-  // min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  width: 100%;
 }
 
-.lo-table thead tr {
+.table-head {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
 }
 
-.lo-table th,
-.lo-table td {
-  padding: 12px 15px;
-}
-
-.lo-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.lo-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-.lo-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-// Scroll hack
-thead tr {
-  display: block;
-}
-tbody {
-  display: block;
+.table-body {
   overflow-y: auto;
+  flex: 1;
 
-  // Find a solution to make it dynamic
-  height: 500px;
-  width: 100%;
+  .table-row {
+    &:hover {
+      background: #eef6ff;
+      outline: 1px solid #2f80ed;
+    }
+  }
+}
+
+.table-row {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.table-cell {
+  padding: 16px;
+  text-align: center;
 }
 </style>

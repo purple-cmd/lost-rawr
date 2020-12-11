@@ -8,7 +8,7 @@ interface APIItem {
 
 export const apiMap: { [key: string]: APIItem } = {
   getLostPets: {
-    url: 'http://localhost:5000/pets/mock',
+    url: 'http://localhost:5000/pets',
     method: 'GET'
   }
 }

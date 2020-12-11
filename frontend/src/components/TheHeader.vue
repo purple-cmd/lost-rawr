@@ -23,6 +23,7 @@ export default defineComponent({})
   background: #d7d0d0;
   display: flex;
   list-style-type: none;
+  height: 40px;
 }
 
 li {

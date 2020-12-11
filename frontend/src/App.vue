@@ -11,13 +11,16 @@ export default defineComponent({
 })
 </script>
 <template>
-  <TheHeader />
-  <div class="site-body">
-    <router-view />
+  <div class="app">
+    <TheHeader />
+    <div class="site-body">
+      <router-view />
+    </div>
+    <BusyIndicator class="spinner-wrapper" />
   </div>
-  <BusyIndicator class="spinner-wrapper" />
 </template>
 <style scoped>
+
 .site-body {
   width: 800px;
   margin: 20px auto;
@@ -29,5 +32,4 @@ export default defineComponent({
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 </style>

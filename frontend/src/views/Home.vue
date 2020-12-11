@@ -10,7 +10,7 @@ export default defineComponent({
   },
   data () {
     const pagination = {
-      pageSize: 10,
+      pageSize: 3,
       offset: 0
     }
     const lostPets: Pet[] = []
@@ -82,14 +82,16 @@ export default defineComponent({
     <section>
       Welcome to lost-rawr, here you can see details about lost pets
     </section>
-    <section class="table-wrapper">
-      <LoTable
-        :items="lostPets"
-        :columns-config="columnsConfig"
-        :load-more-data="getLostPets"
-      />
-    </section>
+    <LoTable
+      :items="lostPets"
+      :columns-config="columnsConfig"
+      :load-more-data="getLostPets"
+    />
   </div>
 </template>
 <style lang="scss" scoped>
+.home {
+  height: calc(100vh - 90px);
+  overflow: hidden;
+}
 </style>
